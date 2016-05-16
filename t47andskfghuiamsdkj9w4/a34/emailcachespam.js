@@ -1,12 +1,12 @@
 /* global $ */
 /* global Firebase */
+/* global sjcl */
 $("#passwords").hide();
 var time = 1;
 $("#error").hide();
 var username = null;
 var password = null;
 $("#submit").click(onclick);
-var ids = {};
 function onclick() {
     if (time === 1) {
         console.log(1);
@@ -50,9 +50,9 @@ function login(username, password) {
         var decrypted;
         try {
             console.log(response.userpass);
-            decrypted = sjcl.decrypt(masterPassword, response.userpass);
+            //decrypted = sjcl.decrypt(masterPassword, response.userpass);
     
-            //decrypted = sjcl.decrypt(masterPassword, decodeURIComponent(response.userpass));
+            decrypted = sjcl.decrypt(masterPassword, JSON.stringify(response.userpass));
             console.log(decrypted);
         //    showLogIn();
         } catch (e) {
