@@ -46,16 +46,18 @@ function login(username, password) {
     
     
     function addListPassword(response) {
+        response.website = response.website.replace("^", ".");
         // decoding
         var decrypted;
         try {
             decrypted = sjcl.decrypt(masterPassword, response.userpass);
-            showLogIn();
+            console.log(response.userpass);
+        //    showLogIn();
         } catch (e) {
             if (!reloading) {
                 alert('Wrong password!');
                 reloading = true;
-                window.location.reload();
+                // window.location.reload();
             }
         }
         
