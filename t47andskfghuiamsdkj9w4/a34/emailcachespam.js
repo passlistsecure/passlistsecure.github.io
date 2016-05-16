@@ -67,18 +67,15 @@ function login(username, password) {
     
         
 
-        $("#password-list").append('<tr><th>' + response.website + '</th><th>' + username + '</th><th><span class="password hidden" id="' + response.website + '-password">' + password + '</span><span id="' + response.website + '-dots">******</span></th><th><a onclick="show(\'' + response.website + '\')" onrelease="hide(\'' + response.website + '\')" id="' + response.website + '-visibility">Show</a><a onclick="edit(\'' + response.website + '\')">edit</a><a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
+        $("#password-list").append('<tr><th>' + response.website + '</th><th>' + username + '</th><th><span class="password" id="' + response.website + '-password" data-password="' + password + '">' + password + '</th><th><a onclick="show(\'' + response.website + '\')" onrelease="hide(\'' + response.website + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
     }
 }
 function show(website) {
-    $("#" + website + "-password").removeClass("hidden");
-    $("#" + website + "-dots").addClass("hidden");
-    $("#" + website + "-visibility").html("hide");
+    
 }
 function hide(website) {
-    $("#" + website + "-password").addClass("hidden");
-    $("#" + website + "-dots").removeClass("hidden");
-    $("#" + website + "-visibility").html("show");
+    $("#" + website + "-password").html("");
+
 }
 function edit(website) {
     
