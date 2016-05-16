@@ -1,6 +1,6 @@
 /* global $ */
 /* global Firebase */
-
+$("#passwords").hide();
 var time = 1;
 $("#error").hide();
 var username = null;
@@ -27,6 +27,9 @@ function onclick() {
 
 
 function login(username, password) {
+    $("#passwords").show();
+    $("#main").hide();
+
     if (username === undefined || username === null || username === '') {
         window.location.reload();
     }
