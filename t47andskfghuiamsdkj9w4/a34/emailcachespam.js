@@ -49,14 +49,13 @@ function login(username, password) {
         // decoding
         var decrypted;
         try {
-            decrypted = sjcl.decrypt(masterPassword, response.userpass);
-            console.log(response.userpass);
+            decrypted = sjcl.decrypt(masterPassword, decodeURIComponent(response.userpass));
         //    showLogIn();
         } catch (e) {
             if (!reloading) {
                 alert('Wrong password!');
                 reloading = true;
-                // window.location.reload();
+                window.location.reload();
             }
         }
         
