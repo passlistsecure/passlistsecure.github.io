@@ -29,7 +29,7 @@ function onclick() {
 function login(username, password) {
     $("#passwords").show();
     $("#main").hide();
-
+    $("#main").remove();
     if (username === undefined || username === null || username === '') {
         window.location.reload();
     }
