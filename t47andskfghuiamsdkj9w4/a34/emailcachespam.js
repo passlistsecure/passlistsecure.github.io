@@ -76,16 +76,19 @@ function login(username, password) {
     }
 }
 function show(website, password) {
-    $("#" + website.replace(".", "\\.") + "-password").attr("onclick", "hide('" + website + "', '" + password + "')")
+    $("#" + website.replace(".", "\\.") + "-visibility").attr("onclick", "hide('" + website + "', '" + password + "')");
+    $("#" + website.replace(".", "\\.") + "-visibility").html("Show");
     $("#" + website.replace(".", "\\.") + "-password").html(password);
 }
 function hide(website, password) {
-    $("#" + website.replace(".", "\\.") + "-password").attr("onclick", "show('" + website + "', '" + password + "')")
+    $("#" + website.replace(".", "\\.") + "-visibility").attr("onclick", "show('" + website + "', '" + password + "')");
+    $("#" + website.replace(".", "\\.") + "-visibility").html("Show");
     $("#" + website.replace(".", "\\.") + "-password").html("*******");
 
 }
 function edit(website) {
-    $("#edit").modal("open");
+    $("#edit-websitename").html(website)
+    $("#edit").modal();
 }
 function del(website) {
     
