@@ -46,7 +46,6 @@ function login(username, password) {
     
     
     function addListPassword(response) {
-        response.website = response.website.replace("^", ".");
         // decoding
         var decrypted;
         try {
