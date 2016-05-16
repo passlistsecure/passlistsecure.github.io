@@ -71,7 +71,7 @@ function login(username, password) {
     
         
 
-        $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
+        $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + ', ' + username + ', ' + password + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
     }
 }
 function decrypt(data, password) {
@@ -93,12 +93,11 @@ function hide(website, password) {
     $("#" + website.replace(".", "\\.") + "-password").html("*******");
 
 }
-function edit(website) {
+function edit(website, username, password) {
     $("#edit-websitename").html(website);
-    $("#edit-username").attr("value", "prime");
-    $("#edit-password").attr("value", "prime");
-    $("#edit-username").attr("value", $("#" + website.replace(".", "\\.") + "-username").val());
-    $("#edit-password").attr("value", $("#" + website.replace(".", "\\.") + "-password").val());
+
+    $("#edit-username").val(username);
+    $("#edit-password").val(password);
 
     $("#edit-website-save").attr("onclick", "edit('" + website + "', $('#edit-username').val(), $('#edit-username').val())")
     $("#edit").modal();
