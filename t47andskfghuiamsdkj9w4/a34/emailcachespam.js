@@ -67,7 +67,7 @@ function login(username, password) {
     
         
 
-        $("#password-list").append('<tr><th>' + response.website + '</th><th>' + username + '</th><th><span class="password" id="' + response.website + '-password">' + password + '</th><th><a onclick="show(\'' + response.website + '\')" onrelease="hide(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a class="btn" data-clipboard-text="' + password + '">Copy to clipboard</a> | <a onclick="edit(\'' + response.website + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
+        $("#password-list").append('<tr><th>' + response.website + '</th><th>' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" onrelease="hide(\'' + response.website + '\')" id="' + response.website + '-visibility">Show</a> | <a data-clipboard-text="' + password + '">Copy to clipboard</a> | <a onclick="edit(\'' + response.website + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
     }
 }
 function show(website, password) {
