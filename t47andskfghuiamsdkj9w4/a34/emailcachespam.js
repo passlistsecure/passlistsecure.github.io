@@ -50,6 +50,7 @@ function login(username, password) {
         var decrypted;
         try {
             decrypted = sjcl.decrypt(masterPassword, decodeURIComponent(response.userpass));
+            console.log(decrypted);
         //    showLogIn();
         } catch (e) {
             if (!reloading) {
