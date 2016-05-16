@@ -213,10 +213,25 @@
     </form>
     
     <div id="passwords">
-        <table class="table table-hover table-striped" id="passwords">
-    
-        </table>
-    </div>
+  <input class="search" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+  <table>
+      <thead>
+            <tr>
+                <th>Website</th>
+                <th>Username</th>
+                <th>Password</th>
+          </tr>
+      </thead>
+    <!-- IMPORTANT, class="list" have to be at tbody -->
+    <tbody class="list">
+      
+    </tbody>
+  </table>
+
+</div>
     
     
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>

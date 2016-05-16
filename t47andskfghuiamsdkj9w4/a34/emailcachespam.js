@@ -41,9 +41,9 @@ function login(username, password) {
     
     
     
-    var userList = new List('password-list', {
+    var userList = new List('passwords', {
         valueNames: ['website', 'username', 'password'],
-        item: '<li><a class="website small-margin" onclick="window.location.href = \'http://\' + this.innerHTML"></a><p class="username small-margin"></p><p class="password small-margin"></p></li>'
+        item: '<tr><th class="website"></th><th class="username"></th><th></th></tr>'
     });
     
     
