@@ -49,8 +49,9 @@ function login(username, password) {
         // decoding
         var decrypted;
         try {
+            console.log(response.userpass);
             decrypted = sjcl.decrypt(masterPassword, response.userpass);
-
+    
             //decrypted = sjcl.decrypt(masterPassword, decodeURIComponent(response.userpass));
             console.log(decrypted);
         //    showLogIn();
