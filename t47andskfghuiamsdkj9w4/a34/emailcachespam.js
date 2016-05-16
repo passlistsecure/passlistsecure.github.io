@@ -1,7 +1,5 @@
-/* global $ */
-/* global Firebase */
-/* global sjcl */
-/* global atob */
+
+/* global atob btoa Firebase sjcl $*/
 $("#passwords").hide();
 var time = 1;
 $("#error").hide();
@@ -76,9 +74,13 @@ function login(username, password) {
         $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
     }
 }
-function encrypt(data, password) {
-    var desjcl = sjcl.decrypt(password, datfoa);
+function decrypt(data, password) {
+    var desjcl = sjcl.decrypt(password, data);
     return atob(desjcl);
+}
+function encrypt(data, password) {
+    var baseenc = btoa(data);
+    sjcl.encrypt(password, baseenc);
 }
 function show(website, password) {
     $("#" + website.replace(".", "\\.") + "-visibility").attr("onclick", "hide('" + website + "', '" + password + "')");
@@ -93,6 +95,8 @@ function hide(website, password) {
 }
 function edit(website) {
     $("#edit-websitename").html(website);
+    $("#edit-username").attr("value", "prime");
+    $("#edit-password").attr("value", "prime");
     $("#edit-username").attr("value", $("#" + website.replace(".", "\\.") + "-username").val());
     $("#edit-password").attr("value", $("#" + website.replace(".", "\\.") + "-password").val());
 
