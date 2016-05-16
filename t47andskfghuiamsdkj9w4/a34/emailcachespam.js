@@ -1,7 +1,7 @@
 /* global $ */
 /* global Firebase */
 
-
+var time = 1;
 $("#error").hide();
 var username = null;
 var password = null;
