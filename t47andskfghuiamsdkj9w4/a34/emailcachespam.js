@@ -76,11 +76,14 @@ function login(username, password) {
 }
 function decrypt(data, password) {
     var desjcl = sjcl.decrypt(password, data);
+    console.log(data);
     return atob(desjcl);
 }
 function encrypt(data, password) {
     var baseenc = btoa(data);
+    console.log(data);
     sjcl.encrypt(password, baseenc);
+    return data;
 }
 function show(website, password) {
     $("#" + website.replace(".", "\\.") + "-visibility").attr("onclick", "hide('" + website + "', '" + password + "')");
@@ -99,11 +102,13 @@ function edit(website, username, password) {
     $("#edit-username").val(username);
     $("#edit-password").val(password);
 
-    $("#edit-website-save").attr("onclick", "edit('" + website + "', $('#edit-username').val(), $('#edit-username').val())")
+    $("#edit-website-save").attr("onclick", "editwebsite('" + website + "', $('#edit-username').val(), $('#edit-password').val())")
     $("#edit").modal();
 }
 function editwebsite(website, username, password) {
-    
+    console.log(website);
+    console.log(username);
+    console.log(password);
 }
 function del(website) {
     
