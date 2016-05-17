@@ -71,7 +71,7 @@ function login(username, password) {
     
         
 
-        $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + ', ' + username + ', ' + password + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
+        $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\', \'' + username + '\', \'' + password + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
     }
 }
 function decrypt(data, password) {
