@@ -81,9 +81,9 @@ function decrypt(data, password) {
 }
 function encrypt(data, password) {
     var baseenc = btoa(data);
-    console.log(data);
-    sjcl.encrypt(password, baseenc);
-    return data;
+    console.log(baseenc);
+    var enc = sjcl.encrypt(password, baseenc);
+    return enc;
 }
 function show(website, password) {
     $("#" + website.replace(".", "\\.") + "-visibility").attr("onclick", "hide('" + website + "', '" + password + "')");
