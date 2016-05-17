@@ -11,6 +11,17 @@ $(document).keypress(function(e) {
         onclick();
     }
 });
+function decrypt(data, password) {
+    var desjcl = sjcl.decrypt(password, data);
+    console.log(data);
+    return atob(desjcl);
+}
+function encrypt(data, password) {
+    var baseenc = btoa(data);
+    console.log(baseenc);
+    var enc = sjcl.encrypt(password, baseenc);
+    return enc;
+}
 function onclick() {
     if (time === 1) {
         console.log(1);
@@ -56,7 +67,7 @@ function login(username, password) {
             console.log(response.userpass);
             //decrypted = sjcl.decrypt(masterPassword, response.userpass);
     
-            decrypted = atob(sjcl.decrypt(masterPassword, JSON.stringify(response.userpass)));
+            decrypted = decrypt(JSON.stringify(response.userpass), masterPassword);
         //    showLogIn();
         } catch (e) {
             if (!reloading) {
@@ -74,17 +85,7 @@ function login(username, password) {
         $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\', \'' + username + '\', \'' + password + '\')">edit</a> | <a onclick="del(\'' + response.website + '\')">delete</a></th></tr>');     
     }
 }
-function decrypt(data, password) {
-    var desjcl = sjcl.decrypt(password, data);
-    console.log(data);
-    return atob(desjcl);
-}
-function encrypt(data, password) {
-    var baseenc = btoa(data);
-    console.log(baseenc);
-    var enc = sjcl.encrypt(password, baseenc);
-    return enc;
-}
+
 function show(website, password) {
     $("#" + website.replace(".", "\\.") + "-visibility").attr("onclick", "hide('" + website + "', '" + password + "')");
     $("#" + website.replace(".", "\\.") + "-visibility").html("Hide");
