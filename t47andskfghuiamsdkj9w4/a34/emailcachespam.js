@@ -1,12 +1,5 @@
-/* global atob btoa Firebase sjcl List $*/
-$("#passwords").css("display", "none");
-
-var options = {
-  valueNames: [ 'website', 'username' ]
-};
-
-var userList = new List('passwords', options);
-
+/* global atob btoa Firebase sjcl $*/
+$("#passwords").hide();
 var websiteids = [];
 var fulllist = "";
 var time = 1;
@@ -54,7 +47,7 @@ function onclick() {
 
 
 function login(username, password) {
-    $("#passwords").css("display", "block");
+    $("#passwords").show();
     $("#main").hide();
     $("#main").remove();
     if (username === undefined || username === null || username === '') {
@@ -160,7 +153,7 @@ function search(s) {
         while (result.length > 0) {
             var current = result[1];
             result.shift()
-            $("#password-list").append('<tr><th class="website">' + response.website + '</th><th class="username" id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\', \'' + username + '\', \'' + password + '\', \'' + response.id + '\')">edit</a> | <a onclick="del(\'' + response.website + '\', \'' + response.id + '\')">delete</a></th></tr>');
+            $("#password-list").append('<tr><th>' + response.website + '</th><th id="' + response.website + '-username">' + username + '</th><th><span class="password" id="' + response.website + '-password">*******</th><th><a onclick="show(\'' + response.website + '\', \'' + password + '\')" id="' + response.website + '-visibility">Show</a> | <a onclick="edit(\'' + response.website + '\', \'' + username + '\', \'' + password + '\', \'' + response.id + '\')">edit</a> | <a onclick="del(\'' + response.website + '\', \'' + response.id + '\')">delete</a></th></tr>');
         }
     } else {
         
