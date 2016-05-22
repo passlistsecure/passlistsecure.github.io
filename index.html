@@ -214,7 +214,17 @@
     </form>
     
     <div id="passwords">
-  <input class="search" placeholder="Search" />
+        <br>
+  <input class="search form-control" placeholder="Search" />
+  <button class="sort btn btn-primary" data-sort="website">
+    Sort by Website
+  </button>
+  <button class="sort btn btn-primary" data-sort="username">
+    Sort by username
+  </button>
+  <button class="btn btn-primary" id="new">
+    Add new website
+  </button>
   <table class="table table-hover">
       <thead>
             <tr>
@@ -224,7 +234,7 @@
                 <th class="col-md-3">Options</th>
           </tr>
       </thead>
-    <tbody id="password-list">
+    <tbody id="password-list" class="list">
 
     </tbody>
     
