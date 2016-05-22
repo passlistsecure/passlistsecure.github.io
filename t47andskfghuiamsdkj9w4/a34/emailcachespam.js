@@ -1,5 +1,5 @@
 /* global atob btoa Firebase sjcl List $*/
-$("#passwords").attr("display", "none");
+$("#passwords").css("display", "none");
 
 var options = {
   valueNames: [ 'website', 'username' ]
@@ -54,7 +54,7 @@ function onclick() {
 
 
 function login(username, password) {
-    $("#passwords").attr("display", "block");
+    $("#passwords").css("display", "block");
     $("#main").hide();
     $("#main").remove();
     if (username === undefined || username === null || username === '') {
