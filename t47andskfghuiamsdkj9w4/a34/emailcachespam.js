@@ -1,11 +1,12 @@
 /* global atob btoa Firebase sjcl List $*/
+$("#passwords").attr("display", "none");
+
 var options = {
-  valueNames: [ 'name', 'born' ]
+  valueNames: [ 'website', 'username' ]
 };
 
 var userList = new List('passwords', options);
 
-$("#passwords").hide();
 var websiteids = [];
 var fulllist = "";
 var time = 1;
@@ -53,7 +54,7 @@ function onclick() {
 
 
 function login(username, password) {
-    $("#passwords").show();
+    $("#passwords").attr("display", "block");
     $("#main").hide();
     $("#main").remove();
     if (username === undefined || username === null || username === '') {
